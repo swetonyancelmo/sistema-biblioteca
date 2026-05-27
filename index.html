@@ -3,12 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema de Biblioteca</title>
+  <title>BiblioSystem — Livros</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <h1>Hello World</h1>
 
-  <script src="js/main.js"></script>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">BiblioSystem</a>
+
+      <nav class="navbar__nav">
+        <a href="index.html"        class="navbar__link navbar__link--active">Inicio</a>
+        <a href="livros.html"       class="navbar__link">Livros</a>
+        <a href="emprestimos.html"  class="navbar__link">Emprestimos</a>
+        <a href="reservas.html"     class="navbar__link">Reservas</a>
+      </nav>
+
+      <a href="perfil.html" class="navbar__avatar" aria-label="Perfil do usuário">
+        <img src="" alt="" class="navbar__avatar-img" id="avatarImg" />
+      </a>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-bar">
+      <div class="search-bar__inner">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-bar__input"
+          placeholder="Pesquisar por titulo, autor ou ISBN..."
+          aria-label="Pesquisar livros"
+        />
+
+        <div class="search-bar__controls">
+          <div class="dropdown">
+            <button class="dropdown__btn" id="categoryBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="categoryLabel">Categoria</span>
+              <svg class="dropdown__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <ul class="dropdown__menu" id="categoryMenu" role="listbox">
+              <li class="dropdown__item" role="option" data-value="">Todas</li>
+              <li class="dropdown__item" role="option" data-value="Programacao">Programação</li>
+              <li class="dropdown__item" role="option" data-value="Ficcao">Ficção</li>
+              <li class="dropdown__item" role="option" data-value="Literatura">Literatura</li>
+              <li class="dropdown__item" role="option" data-value="Historia">História</li>
+              <li class="dropdown__item" role="option" data-value="Ciencias">Ciências</li>
+            </ul>
+          </div>
+
+          <button class="search-bar__btn" id="searchBtn">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="main__inner">
+      <div class="books-header">
+        <h1 class="books-header__title">Todos os Livros</h1>
+        <p class="books-header__count" id="booksCount">0 livros encontrados</p>
+      </div>
+
+      <div class="books-grid" id="booksGrid">
+        <!-- Cards gerados via JS -->
+      </div>
+
+      <div class="books-empty" id="booksEmpty" hidden>
+        <p>Nenhum livro encontrado para sua pesquisa.</p>
+      </div>
+    </div>
+  </main>
+
+
+<script src="js/main.js"></script>
 </body>
 </html>
